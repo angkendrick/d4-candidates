@@ -2,14 +2,12 @@
 # This way, we keep these methods separated from other potential parts of the program
  
 def find(id)
- 
-	@candidates.each do |i|
-		if i[:id] == id
-			return i
-		# else
-		# 	return "id not found"
+	@candidates.each do |x|
+		if x[:id] == id
+			return x
 		end
 	end
+	return 'not found'
 
 end
  
@@ -30,7 +28,11 @@ def qualified_candidates(candidates)
 	qualified = []
 
 	candidates.each do |i|
-		if i[:years_of_experience] >= 1 && i[:github_points] >= 100 && i[:languages].include?('Ruby' || 'Python') && i[:date_applied] >= Date.today - 15 && i[:age] >= 18
+		if i[:years_of_experience] >= 1 &&
+		 i[:github_points] >= 100 && 
+		 i[:languages].include?('Ruby' || 'Python') && 
+		 i[:date_applied] >= Date.today - 15 && 
+		 i[:age] >= 18
 			qualified << i
 
 		end
